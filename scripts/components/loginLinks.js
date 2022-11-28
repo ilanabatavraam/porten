@@ -1,18 +1,18 @@
-export class worktime {
-    // creating UL with worktime
+export class loginLinks {
     constructor(arr) {
         this.arr = arr;
         this.elem = this.render;
     }
+
     get render() {
         this.elem = document.createElement('ul');
-        this.elem.classList.add('workhours', 'body__list');
+        this.elem.classList.add('login-list', 'body__list');
 
         this.arr.forEach((item) => {
             let listItem = document.createElement('li');
-            listItem.classList.add('workhours__item');
+            listItem.classList.add('login-list__item');
             if (item.link) {
-                let link = `<a href="tel:${item.link}" class="body__link">${item.name}</a>`
+                let link = `<a href="${item.link}" class="body__link">${item.name}</a>`
                 listItem.innerHTML = link;
             } else {
                 listItem.textContent = item.name;

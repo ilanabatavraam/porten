@@ -1,0 +1,17 @@
+.header__work-info {
+    font-size: 12px;
+    line-height: 16px;
+    color: #969696;
+}
+
+.header__work-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 500px) {
+    .header__work-info {
+        display: none;
+    }
+}

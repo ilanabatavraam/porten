@@ -1,0 +1,17 @@
+.login-list {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px 0;
+}
+
+.login-list__item:not(:last-child) .body__link {
+    padding: 0 10px;
+}
+
+.login-list__item:last-child .body__link {
+    padding: 0 0 0 10px;
+}
+
+.login-list__item:not(:last-child)::after {
+    content: '/';
+}
