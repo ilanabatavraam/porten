@@ -9,20 +9,15 @@ export class worktime {
         this.elem.classList.add('workhours');
 
         this.arr.forEach((item) => {
-            let li = document.createElement('li');
-            li.classList.add('workhours__item');
-            if (typeof item === `number`) {
-                let link = document.createElement('a');
-                link.classList.add('body__link')
-                link.href = item;
-                link.textContent = item;
-                console.log(link);
-                li.append(link);
-                this.elem.append(li);
+            let listItem = document.createElement('li');
+            listItem.classList.add('workhours__item');
+            if (item.link) {
+                let link = `<a href="tel:${item.link}" class="body__link">${item.name}</a>`
+                listItem.innerHTML = link;
             } else {
-                li.textContent = item
-                this.elem.append(li);
+                listItem.textContent = item.name;
             }
+            this.elem.append(listItem);
         });
         return this.elem
     }
