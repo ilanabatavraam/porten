@@ -1,4 +1,4 @@
-export class worktime {
+export class Worktime {
     // creating UL with worktime
     constructor(arr) {
         this.arr = arr;

@@ -1,4 +1,4 @@
-export class nav  {
+export class Nav  {
     constructor(arr) {
         this.arr = arr;
         this.elem = this.render;

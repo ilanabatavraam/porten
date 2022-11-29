@@ -1,0 +1,15 @@
+.promo-categoties {
+    display: flex;
+}
+
+.promo-categoties__slider {
+    width: 50%;
+    min-width: 50%;
+    max-width: 50%;
+}
+
+.promo-categoties__all {
+    width: 50%;
+    min-width: 50%;
+    max-width: 50%;
+}

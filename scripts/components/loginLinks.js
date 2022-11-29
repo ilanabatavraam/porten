@@ -1,4 +1,4 @@
-export class loginLinks {
+export class LoginLinks {
     constructor(arr) {
         this.arr = arr;
         this.elem = this.render;
