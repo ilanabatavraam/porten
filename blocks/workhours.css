@@ -1,0 +1,33 @@
+.workhours {
+    padding: 5px 0;
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.workhours__item {
+    white-space: nowrap;
+    padding: 0 10px 0 0;
+}
+
+.workhours__item:not(:last-child) {
+    position: relative;
+}
+
+.workhours__item:not(:first-child) {
+    padding: 0 10px;
+}
+
+.workhours__item:not(:last-child)::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 1px;
+    background-color: #969696;
+}
