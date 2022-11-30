@@ -14,6 +14,17 @@
     margin: 0 auto;
 }
 
+.body__wrapper_size_large {
+    max-width: 1920px;
+}
+
+.body__main-title {
+    font-size: 0;
+    line-height: 0;
+    margin: -1px;
+    overflow: hidden;
+}
+
 .body__link {
     color: inherit;
     text-decoration: none;
@@ -28,4 +39,28 @@
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+.body__title {
+    margin: 0 auto;
+    padding: 0 0 20px 0;
+    font-size: 36px;
+    line-height: 42px;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    position: relative;
+    color: #ffffff;
+}
+
+.body__title::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 2px;
+    width: 120px;
+    height: 1px;
+    background-color: #ffffff;
 }

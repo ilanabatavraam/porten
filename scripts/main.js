@@ -58,16 +58,47 @@ const navLinks = [
     },
 ];
 
-import {worktime} from './components/worktime.js';
-import {loginLinks} from './components/loginLinks.js';
-import {nav} from './components/nav.js';
+
+const mainSliderCards = [
+    {
+        name: 'Louis XVI ATHOS',
+        link: '#',
+        price: '6 000',
+        currency: '$',
+        img: './images/item.png',
+    }, 
+    {
+        name: 'Gucci XVI ATHOS',
+        link: '#',
+        price: '6 000',
+        currency: '$',
+        img: './images/item.png',
+    }, 
+    {
+        name: 'Prada XVI ATHOS',
+        link: '#',
+        price: '6 000',
+        currency: '$',
+        img: './images/item.png',
+    }, 
+];
+
+import {Worktime} from './components/Worktime.js';
+import {LoginLinks} from './components/LoginLinks.js';
+import {Nav} from './components/Nav.js';
+import {Cards} from './components/Cards.js';
 
 // header top line
 const headerTopline = document.querySelector('.header__work-info');
 const headerNav = document.querySelector('.header__nav');
-const workList = new worktime(workSchedule);
-const login = new loginLinks(loginLinksData);
-const navigation = new nav(navLinks);
+const promoSlider = document.querySelector('.promo-categoties__slider');
+
+const workList = new Worktime(workSchedule);
+const login = new LoginLinks(loginLinksData);
+const navigation = new Nav(navLinks);
+const sliderCards = new Cards(mainSliderCards);
+
 headerTopline.append(workList.elem);
 headerTopline.append(login.elem);
 headerNav.append(navigation.elem);
+promoSlider.append(sliderCards.elem);
