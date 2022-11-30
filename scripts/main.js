@@ -63,23 +63,23 @@ const mainSliderCards = [
     {
         name: 'Louis XVI ATHOS',
         link: '#',
-        icon: '6 000',
+        price: '6 000',
         currency: '$',
-        img: '',
+        img: './images/item.png',
     }, 
     {
         name: 'Gucci XVI ATHOS',
         link: '#',
-        icon: '6 000',
+        price: '6 000',
         currency: '$',
-        img: '',
+        img: './images/item.png',
     }, 
     {
         name: 'Prada XVI ATHOS',
         link: '#',
-        icon: '6 000',
+        price: '6 000',
         currency: '$',
-        img: '',
+        img: './images/item.png',
     }, 
 ];
 
