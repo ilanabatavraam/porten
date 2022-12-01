@@ -81,6 +81,13 @@ const mainSliderCards = [
         currency: '$',
         img: './images/item.png',
     }, 
+    {
+        name: 'Louis XVI ATHOS',
+        link: '#',
+        price: '6 000',
+        currency: '$',
+        img: './images/item.png',
+    }, 
 ];
 
 import {Worktime} from './components/Worktime.js';

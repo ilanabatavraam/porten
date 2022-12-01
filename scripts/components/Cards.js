@@ -19,7 +19,7 @@ export class Cards {
                 <a href="${item.link}" class="card__link body__link">
                     ${item.name}
                 </a>
-                <p>${item.currency} ${item.price}</p>
+                <p class="card__price">${item.currency} ${item.price}</p>
                 </div>  
             `;
             this.elem.append(card)
