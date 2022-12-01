@@ -11,7 +11,7 @@
     max-width: 1100px;
     box-sizing: border-box;
     padding: 10px;
-    margin: 0 auto;
+    margin: 0 auto 20px;
 }
 
 .body__wrapper_size_large {
@@ -51,6 +51,7 @@
     text-transform: uppercase;
     position: relative;
     color: #ffffff;
+    margin-bottom: 20px;
 }
 
 .body__title::before {
@@ -63,4 +64,11 @@
     width: 120px;
     height: 1px;
     background-color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+    .body__title {
+        font-size: 26px;
+        line-height: 1.4;
+    }
 }
