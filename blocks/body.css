@@ -66,6 +66,21 @@
     background-color: #ffffff;
 }
 
+.body__subtitle {
+    margin: 0 0 40px 0;
+    font-size: 24px;
+    line-height: 28px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+@media screen and (max-width: 1000px) {
+    .body__subtitle {
+        margin: 0 0 20px 0;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .body__title {
         font-size: 26px;
