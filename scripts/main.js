@@ -90,6 +90,74 @@ const mainSliderCards = [
     }, 
 ];
 
+const newArrivalsCards = [
+    {
+        name: 'Louis XVI ATHOS',
+        link: '#',
+        price: '6 000',
+        currency: '$',
+        img: './images/item.png',
+    }, 
+    {
+        name: 'Gucci XVI ATHOS',
+        link: '#',
+        price: '6 000',
+        currency: '$',
+        img: './images/item.png',
+    }, 
+    {
+        name: 'Prada XVI ATHOS',
+        link: '#',
+        price: '6 000',
+        currency: '$',
+        img: './images/item.png',
+    }, 
+    {
+        name: 'Louis XVI ATHOS',
+        link: '#',
+        price: '6 000',
+        currency: '$',
+        img: './images/item.png',
+    }, , 
+    {
+        name: 'Prada XVI ATHOS',
+        link: '#',
+        price: '6 000',
+        currency: '$',
+        img: './images/item.png',
+    }, 
+    {
+        name: 'Louis XVI ATHOS',
+        link: '#',
+        price: '6 000',
+        currency: '$',
+        img: './images/item.png',
+    }, , 
+    {
+        name: 'Prada XVI ATHOS',
+        link: '#',
+        price: '6 000',
+        currency: '$',
+        img: './images/item.png',
+    }, 
+    {
+        name: 'Louis XVI ATHOS',
+        link: '#',
+        price: '6 000',
+        currency: '$',
+        img: './images/item.png',
+    }, , 
+    {
+        name: 'Louis XVI ATHOS',
+        link: '#',
+        price: '6 000',
+        currency: '$',
+        img: './images/item.png',
+    }, 
+];
+
+
+
 import {Worktime} from './components/Worktime.js';
 import {LoginLinks} from './components/LoginLinks.js';
 import {Nav} from './components/Nav.js';
@@ -99,13 +167,49 @@ import {Cards} from './components/Cards.js';
 const headerTopline = document.querySelector('.header__work-info');
 const headerNav = document.querySelector('.header__nav');
 const promoSlider = document.querySelector('.promo-categoties__slider');
+const newArrivals = document.querySelector('.cards-new-arr')
 
 const workList = new Worktime(workSchedule);
 const login = new LoginLinks(loginLinksData);
 const navigation = new Nav(navLinks);
 const sliderCards = new Cards(mainSliderCards);
+const newCollectionCards = new Cards(newArrivalsCards);
 
 headerTopline.append(workList.elem);
 headerTopline.append(login.elem);
 headerNav.append(navigation.elem);
 promoSlider.append(sliderCards.elem);
+newArrivals.append(newCollectionCards.elem);
+
+function getShowMoreBnt(htmlCollection, number, link) {
+    const arr = Array.from(htmlCollection.children);
+    const showMore = document.createElement('a');
+
+
+    if (arr.length > number) {
+        arr.forEach((card, i) => {
+            if (i >= number) {
+                card.remove();
+            }
+        }) 
+        showMore.href = link;
+        showMore.textContent = 'Show more';
+        showMore.classList.add('page__link', 'button', 'cards__show-more')
+
+        htmlCollection.append(showMore);
+    }
+    if (window.innerWidth > 750) {
+        showMore.addEventListener('click', function(event) {
+            event.preventDefault();
+            arr.forEach((card, i) => {
+                if (i >= number) {
+                    card.style.transition = '0.5s';
+                    htmlCollection.append(card);
+                }
+            });
+            showMore.remove();
+        });
+    }
+}
+
+getShowMoreBnt(newArrivals.querySelector('.cards'), 8, '/#');

@@ -7,6 +7,12 @@
     padding-bottom: 15px;
 }
 
+.cards-new-arr .cards {
+    flex-wrap: wrap;
+    gap: 13px;
+    margin: 0 auto;
+}
+
 .cards::-webkit-scrollbar  {
     height: 5px; 
     background-color: #ffffff;
@@ -14,4 +20,29 @@
 
 .cards::-webkit-scrollbar-thumb {
     background-color: #000000;
+}
+
+.cards__show-more {
+    margin: 40px auto 0;
+}
+
+@media screen and (max-width: 1150px) {
+    .cards-new-arr .cards {
+        padding: 0 3% 15px;
+    }
+
+    .cards__show-more {
+        margin: 0;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .cards-new-arr .cards {
+        padding: 0 0 15px;
+        flex-wrap: nowrap;
+    }
 }
