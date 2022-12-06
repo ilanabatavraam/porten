@@ -8,7 +8,6 @@ export class Cards {
         this.elem.classList.add('cards');
         
         this.arr.forEach(item => {
-            console.log(item)
             const card = document.createElement('div');
             card.classList.add('card');
             card.innerHTML = `

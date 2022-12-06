@@ -90,22 +90,217 @@ const mainSliderCards = [
     }, 
 ];
 
+const newArrivalsCards = [
+    {
+        name: 'Louis XVI ATHOS',
+        link: '#',
+        price: '6 000',
+        currency: '$',
+        img: './images/item.png',
+    }, 
+    {
+        name: 'Gucci XVI ATHOS',
+        link: '#',
+        price: '6 000',
+        currency: '$',
+        img: './images/item.png',
+    }, 
+    {
+        name: 'Prada XVI ATHOS',
+        link: '#',
+        price: '6 000',
+        currency: '$',
+        img: './images/item.png',
+    }, 
+    {
+        name: 'Louis XVI ATHOS',
+        link: '#',
+        price: '6 000',
+        currency: '$',
+        img: './images/item.png',
+    }, , 
+    {
+        name: 'Prada XVI ATHOS',
+        link: '#',
+        price: '6 000',
+        currency: '$',
+        img: './images/item.png',
+    }, 
+    {
+        name: 'Louis XVI ATHOS',
+        link: '#',
+        price: '6 000',
+        currency: '$',
+        img: './images/item.png',
+    }, , 
+    {
+        name: 'Prada XVI ATHOS',
+        link: '#',
+        price: '6 000',
+        currency: '$',
+        img: './images/item.png',
+    }, 
+    {
+        name: 'Louis XVI ATHOS',
+        link: '#',
+        price: '6 000',
+        currency: '$',
+        img: './images/item.png',
+    }, , 
+    {
+        name: 'Louis XVI ATHOS',
+        link: '#',
+        price: '6 000',
+        currency: '$',
+        img: './images/item.png',
+    }, 
+];
+
+const brandsList = [
+    {
+        name: 'Brand name',
+        link: '/#',
+        img: 'url("./images/brand.png")'
+    },
+    {
+        name: 'Brand name',
+        link: '/#',
+        img: 'url("./images/brand.png")'
+    },
+    {
+        name: 'Brand name',
+        link: '/#',
+        img: 'url("./images/brand.png")'
+    },
+    {
+        name: 'Brand name',
+        link: '/#',
+        img: 'url("./images/brand.png")'
+    },
+];
+
+const smallCategories = [
+    {
+        name: 'Watches',
+        link: '/#',
+    },
+    {
+        name: 'Suits',
+        link: '/#',
+    },
+    {
+        name: 'Belts',
+        link: '/#',
+    },
+    {
+        name: 'Cufflinks',
+        link: '/#',
+    },
+];
+
+const mailingForm = {
+    inputType: 'email',
+    method: 'post',
+    formName: 'mailing',
+    inputName: 'userMail',
+    formClass: 'mailing',
+    inputClass: 'mailing__input',
+    formAction: 'https://httpbin.org/post',
+    placeholder: 'Your email',
+}
+
+
+
+
+
 import {Worktime} from './components/Worktime.js';
 import {LoginLinks} from './components/LoginLinks.js';
 import {Nav} from './components/Nav.js';
 import {Cards} from './components/Cards.js';
+import {Brands} from './components/Brands.js';
+import {CategoriesList} from './components/CategoriesList.js';
 
 // header top line
 const headerTopline = document.querySelector('.header__work-info');
 const headerNav = document.querySelector('.header__nav');
 const promoSlider = document.querySelector('.promo-categoties__slider');
+const newArrivals = document.querySelector('.cards-new-arr');
+const brands = document.querySelector('.brands');
+const smallCatsWrapper = document.querySelector('.info__body_type_categories');
+const mailingWrapper = document.querySelector('.info__body_type_newsletter');
 
 const workList = new Worktime(workSchedule);
 const login = new LoginLinks(loginLinksData);
 const navigation = new Nav(navLinks);
 const sliderCards = new Cards(mainSliderCards);
+const newCollectionCards = new Cards(newArrivalsCards);
+const footeBrandsList = new Brands(brandsList);
+const smallCategoriesList = new CategoriesList(smallCategories);
 
 headerTopline.append(workList.elem);
 headerTopline.append(login.elem);
 headerNav.append(navigation.elem);
 promoSlider.append(sliderCards.elem);
+newArrivals.append(newCollectionCards.elem);
+brands.append(footeBrandsList.elem);
+smallCatsWrapper.append(smallCategoriesList.elem);
+
+function getShowMoreBnt(htmlCollection, number, link) {
+    const arr = Array.from(htmlCollection.children);
+    const showMore = document.createElement('a');
+
+
+    if (arr.length > number) {
+        arr.forEach((card, i) => {
+            if (i >= number) {
+                card.remove();
+            }
+        }) 
+        showMore.href = link;
+        showMore.textContent = 'Show more';
+        showMore.classList.add('page__link', 'button', 'cards__show-more')
+
+        htmlCollection.append(showMore);
+    }
+    if (window.innerWidth > 750) {
+        showMore.addEventListener('click', function(event) {
+            event.preventDefault();
+            arr.forEach((card, i) => {
+                if (i >= number) {
+                    card.style.transition = '0.5s';
+                    htmlCollection.append(card);
+                }
+            });
+            showMore.remove();
+        });
+    }
+}
+
+function createForm(obj, wrapper) {
+    let form = document.createElement('form');
+    form.name = obj.formName;
+    form.classList.add(obj.formClass);
+    form.action = obj.formAction;
+    //form.setAttribute('novalidate', true); add after validation
+
+    form.innerHTML = `
+    <label class="mailing__label" for="${obj.inputName}">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi semper viverra nunc cursus tortor lectus nunc nulla nibh.
+    </label>
+    <input type="${obj.inputType}" placeholder="${obj.placeholder}" id="${obj.inputName}" class="${obj.inputClass}" name="${obj.inputName}" required autocomplete="off">
+    <button type="submit" class="mailing__submit">Submit</button>
+    `
+
+    wrapper.append(form);
+}
+
+createForm(mailingForm, mailingWrapper);
+getShowMoreBnt(newArrivals.querySelector('.cards'), 8, '/#');
+
+(function setFooterInfo() {
+    const copywrite = `${new Date().getFullYear()} All rights reserved` ;
+    const designOwner = 'Design Figma.info'
+    
+    const footerLine = document.querySelector('.footer__wrapper');
+    footerLine.innerHTML = `<p class="footer__copy-text">${copywrite}</p><p class="footer__copy-text">${designOwner}</p>`
+})();

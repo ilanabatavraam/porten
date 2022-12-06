@@ -1,0 +1,15 @@
+.small-categoties {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.small-categoties__link {
+    text-transform: lowercase;
+    font-size: 14px;
+    line-height: 150%;
+    color: #D0D0D0;
+    background: #0F0F0F;
+    padding: 10px 20px;
+    display: inline-block;
+}
