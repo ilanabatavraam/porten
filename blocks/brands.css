@@ -1,0 +1,14 @@
+.brands__items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+.brands__item {
+    display: block;
+    width: 255px;
+    height: 94px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
