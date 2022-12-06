@@ -1,0 +1,48 @@
+.mailing {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.mailing__label {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.mailing__input {
+    border-radius: 0;
+    background: rgba(255, 255, 255, 0.4);
+    border: 1px solid transparent;
+    padding: 15px;
+
+}
+
+.mailing__submit {
+    border: 1px solid transparent;
+    border-radius: 0;
+    cursor: pointer;
+    background: #0F0F0F;
+    font-size: 14px;
+    line-height: 150%;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+    transition: 0.3s;
+    padding: 5px 15px;
+}
+
+.mailing__submit:hover {
+    background-color: rgba(0,0,0,0.3);
+}
+
+.mailing__input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.mailing__input:focus, .mailing__input:focus-visible {
+    border-radius: 0;
+    outline: 0;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}

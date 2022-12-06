@@ -1,0 +1,14 @@
+.footer__copy-text {
+    margin: 0;
+    font-size: 12px;
+    line-height: 16px;
+    color: #D0D0D0;
+}
+
+.footer__wrapper {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    box-sizing: border-box;
+}

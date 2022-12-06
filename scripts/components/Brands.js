@@ -5,7 +5,7 @@ export class Brands {
     }
     get render() {
         this.elem = document.createElement('div');
-        this.elem.classList.add('brands__items');
+        this.elem.classList.add('brands__items', 'body__wrapper');
         
         this.arr.forEach(item => {
             const link = document.createElement('a');

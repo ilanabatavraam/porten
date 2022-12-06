@@ -198,6 +198,17 @@ const smallCategories = [
     },
 ];
 
+const mailingForm = {
+    inputType: 'email',
+    method: 'post',
+    formName: 'mailing',
+    inputName: 'userMail',
+    formClass: 'mailing',
+    inputClass: 'mailing__input',
+    formAction: 'https://httpbin.org/post',
+    placeholder: 'Your email',
+}
+
 
 
 
@@ -216,6 +227,7 @@ const promoSlider = document.querySelector('.promo-categoties__slider');
 const newArrivals = document.querySelector('.cards-new-arr');
 const brands = document.querySelector('.brands');
 const smallCatsWrapper = document.querySelector('.info__body_type_categories');
+const mailingWrapper = document.querySelector('.info__body_type_newsletter');
 
 const workList = new Worktime(workSchedule);
 const login = new LoginLinks(loginLinksData);
@@ -264,4 +276,31 @@ function getShowMoreBnt(htmlCollection, number, link) {
     }
 }
 
+function createForm(obj, wrapper) {
+    let form = document.createElement('form');
+    form.name = obj.formName;
+    form.classList.add(obj.formClass);
+    form.action = obj.formAction;
+    //form.setAttribute('novalidate', true); add after validation
+
+    form.innerHTML = `
+    <label class="mailing__label" for="${obj.inputName}">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi semper viverra nunc cursus tortor lectus nunc nulla nibh.
+    </label>
+    <input type="${obj.inputType}" placeholder="${obj.placeholder}" id="${obj.inputName}" class="${obj.inputClass}" name="${obj.inputName}" required autocomplete="off">
+    <button type="submit" class="mailing__submit">Submit</button>
+    `
+
+    wrapper.append(form);
+}
+
+createForm(mailingForm, mailingWrapper);
 getShowMoreBnt(newArrivals.querySelector('.cards'), 8, '/#');
+
+(function setFooterInfo() {
+    const copywrite = `${new Date().getFullYear()} All rights reserved` ;
+    const designOwner = 'Design Figma.info'
+    
+    const footerLine = document.querySelector('.footer__wrapper');
+    footerLine.innerHTML = `<p class="footer__copy-text">${copywrite}</p><p class="footer__copy-text">${designOwner}</p>`
+})();
