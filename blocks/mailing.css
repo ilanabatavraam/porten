@@ -1,6 +1,15 @@
 .mailing {
     display: flex;
     flex-wrap: wrap;
+    position: relative;
+}
+
+.mailing__error {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 5px);
+    font-size: 10px;
+    line-height: 1;
 }
 
 .mailing__label {
@@ -32,6 +41,11 @@
     transition: 0.3s;
     padding: 5px 15px;
     margin: 0;
+}
+
+.mailing__submit_disabled {
+    cursor: default;
+    opacity: 0.5;
 }
 
 .mailing__submit:hover {

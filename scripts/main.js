@@ -281,14 +281,14 @@ function createForm(obj, wrapper) {
     form.name = obj.formName;
     form.classList.add(obj.formClass);
     form.action = obj.formAction;
-    //form.setAttribute('novalidate', true); add after validation
+    form.setAttribute('novalidate', true);
 
     form.innerHTML = `
     <label class="mailing__label" for="${obj.inputName}">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi semper viverra nunc cursus tortor lectus nunc nulla nibh.
     </label>
     <input type="${obj.inputType}" placeholder="${obj.placeholder}" id="${obj.inputName}" class="${obj.inputClass}" name="${obj.inputName}" required autocomplete="off">
-    <button type="submit" class="mailing__submit">Submit</button>
+    <button type="submit" class="mailing__submit mailing__submit_disabled">Submit</button>
     `
 
     wrapper.append(form);
@@ -304,6 +304,53 @@ getShowMoreBnt(newArrivals.querySelector('.cards'), 8, '/#');
     const footerLine = document.querySelector('.footer__wrapper');
     footerLine.innerHTML = `<p class="footer__copy-text">${copywrite}</p><p class="footer__copy-text">${designOwner}</p>`
 })();
+
+// form submit
+(function() {
+    const form = document.forms.mailing;
+    const input = form.userMail;
+    const errorSpan = document.createElement('span');
+    const submitBtn = form.querySelector('.mailing__submit');
+    errorSpan.classList.add('mailing__error');
+    form.append(errorSpan);
+
+    function showMsg(inputElem) {
+        errorSpan.textContent = inputElem;
+    }
+
+    function hideMsg() {
+        errorSpan.textContent = '';
+    }
+
+    function checkInput(event) {
+        if (event.target.validity.valid) {
+            hideMsg();
+            submitBtn.classList.remove('mailing__submit_disabled');
+        } else {
+            showMsg(event.target.validationMessage);
+            submitBtn.classList.add('mailing__submit_disabled');
+        }
+    }    
+
+
+
+    function submitSubscriptionForm(event) {
+        event.preventDefault();
+        if (input.validity.valid) {
+            input.value = '';
+            showMsg('Thank you! :)');
+            setTimeout(hideMsg, 3000)
+
+        } else {
+            showMsg(input.validationMessage);
+        }
+    }
+
+    input.addEventListener('input', checkInput);
+    input.addEventListener('focusout', hideMsg);
+    form.addEventListener('submit', submitSubscriptionForm);
+})();
+
 
 // header popup
 (function() {
