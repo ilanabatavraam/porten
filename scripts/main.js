@@ -304,3 +304,19 @@ getShowMoreBnt(newArrivals.querySelector('.cards'), 8, '/#');
     const footerLine = document.querySelector('.footer__wrapper');
     footerLine.innerHTML = `<p class="footer__copy-text">${copywrite}</p><p class="footer__copy-text">${designOwner}</p>`
 })();
+
+// header popup
+(function() {
+    const openPopupButton = document.querySelector('.header__nav-toggle');
+    const navWrapper = document.querySelector('.header__nav-links');
+    const body = document.querySelector('.body');
+
+    let openPopup = event => {
+        event.preventDefault();
+        navWrapper.classList.toggle('header__nav-links_opened');
+        openPopupButton.classList.toggle('header__nav-toggle_opened');
+        body.style.overflow = 'hidden';
+    };
+
+    openPopupButton.addEventListener('click', openPopup);
+})();
