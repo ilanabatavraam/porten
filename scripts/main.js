@@ -362,7 +362,12 @@ getShowMoreBnt(newArrivals.querySelector('.cards'), 8, '/#');
         event.preventDefault();
         navWrapper.classList.toggle('header__nav-links_opened');
         openPopupButton.classList.toggle('header__nav-toggle_opened');
-        body.style.overflow = 'hidden';
+
+        if (navWrapper.classList.contains('header__nav-links_opened')) {
+            body.style.overflow = 'hidden';
+        } else {
+            body.style.overflow = '';
+        }
     };
 
     openPopupButton.addEventListener('click', openPopup);
