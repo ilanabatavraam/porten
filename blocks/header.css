@@ -36,6 +36,8 @@
     align-items: center;
     text-align: center;
     padding: 25px 20px;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 .header__nav-link:hover {
