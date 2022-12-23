@@ -17,7 +17,7 @@
     background: rgba(255, 255, 255, 0.4);
     border: 1px solid transparent;
     padding: 15px;
-
+    margin: 0;
 }
 
 .mailing__submit {
@@ -31,6 +31,7 @@
     color: #FFFFFF;
     transition: 0.3s;
     padding: 5px 15px;
+    margin: 0;
 }
 
 .mailing__submit:hover {
