@@ -282,13 +282,15 @@ function createForm(obj, wrapper) {
     form.classList.add(obj.formClass);
     form.action = obj.formAction;
     form.setAttribute('novalidate', true);
+    form.setAttribute('action', 'https://httpbin.org/post');
+    form.setAttribute('method', 'post');
 
     form.innerHTML = `
     <label class="mailing__label" for="${obj.inputName}">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mi semper viverra nunc cursus tortor lectus nunc nulla nibh.
     </label>
     <input type="${obj.inputType}" placeholder="${obj.placeholder}" id="${obj.inputName}" class="${obj.inputClass}" name="${obj.inputName}" required autocomplete="off">
-    <button type="submit" class="mailing__submit mailing__submit_disabled">Submit</button>
+    <button type="submit" class="mailing__submit mailing__submit_disabled" disabled>Submit</button>
     `
 
     wrapper.append(form);
@@ -326,9 +328,11 @@ getShowMoreBnt(newArrivals.querySelector('.cards'), 8, '/#');
         if (event.target.validity.valid) {
             hideMsg();
             submitBtn.classList.remove('mailing__submit_disabled');
+            submitBtn.removeAttribute('disabled', 'false');
         } else {
             showMsg(event.target.validationMessage);
             submitBtn.classList.add('mailing__submit_disabled');
+            submitBtn.setAttribute('disabled', 'true');
         }
     }    
 
@@ -338,12 +342,20 @@ getShowMoreBnt(newArrivals.querySelector('.cards'), 8, '/#');
         event.preventDefault();
         if (input.validity.valid) {
             input.value = '';
-            showMsg('Thank you! :)');
-            setTimeout(hideMsg, 3000)
 
         } else {
             showMsg(input.validationMessage);
         }
+
+        let formData = new FormData(event.target);
+        fetch('https://httpbin.org/post', { method: "POST", body: formData })
+        .then((response) => {
+            return response.json;
+        })
+        .then(() => {
+            showMsg('Thank you! :)');
+            setTimeout(hideMsg, 3000)
+        });
     }
 
     input.addEventListener('input', checkInput);
