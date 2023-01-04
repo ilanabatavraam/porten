@@ -1,10 +1,12 @@
+import {Popup} from './Popup.js';
 export class LoginLinks {
     constructor(arr) {
         this.arr = arr;
-        this.elem = this.render;
+        this.elem = this.#render();
+        this.setEventListeners();
     }
 
-    get render() {
+    #render() {
         this.elem = document.createElement('ul');
         this.elem.classList.add('login-list', 'body__list');
 
@@ -12,7 +14,7 @@ export class LoginLinks {
             let listItem = document.createElement('li');
             listItem.classList.add('login-list__item');
             if (item.link) {
-                let link = `<a href="${item.link}" class="body__link">${item.name}</a>`
+                let link = `<a href="${item.link}" class="body__link" data-link="${item.data}">${item.name}</a>`
                 listItem.innerHTML = link;
             } else {
                 listItem.textContent = item.name;
@@ -20,5 +22,15 @@ export class LoginLinks {
             this.elem.append(listItem);
         });
         return this.elem
+    }
+
+    setEventListeners() {
+        this.elem.addEventListener('click', function(event) {
+            if (event.target.closest('a')) {
+                event.preventDefault();
+                const popup = new Popup(event.target.dataset.link);
+                popup.open();
+            }
+        });
     }
 }

@@ -17,10 +17,12 @@ const loginLinksData = [
     {
         name: 'Sing in',
         link: '/login',
+        data: 'singin'
     },
     {
         name: 'Sing up',
         link: '/registrayion',
+        data: 'singup'
     }
 ];
 
