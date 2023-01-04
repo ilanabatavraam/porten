@@ -20,7 +20,7 @@
 }
 
 .popup__container {
-    transition: 3s;
+    transition: 0.3s;
     width: 100%;
     padding: 20px 35vw;
     box-sizing: border-box;
@@ -40,6 +40,16 @@
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
+}
+
+.popup__input {
+    display: block;
+    width: 100px;
+    min-width: 100%;
+    min-height: 25px;
+    border-radius: 0;
+    border: 0;
+    margin-bottom: 10px;
 }
 
 @media screen and (max-width: 800px) {

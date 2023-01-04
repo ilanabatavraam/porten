@@ -230,9 +230,11 @@ const newArrivals = document.querySelector('.cards-new-arr');
 const brands = document.querySelector('.brands');
 const smallCatsWrapper = document.querySelector('.info__body_type_categories');
 const mailingWrapper = document.querySelector('.info__body_type_newsletter');
+const footer = document.querySelector('.footer');
 
 const workList = new Worktime(workSchedule);
 const login = new LoginLinks(loginLinksData);
+const loginFooter = new LoginLinks(loginLinksData);
 const navigation = new Nav(navLinks);
 const sliderCards = new Cards(mainSliderCards);
 const newCollectionCards = new Cards(newArrivalsCards);
@@ -241,6 +243,7 @@ const smallCategoriesList = new CategoriesList(smallCategories);
 
 headerTopline.append(workList.elem);
 headerTopline.append(login.elem);
+footer.append(loginFooter.elem);
 headerNav.append(navigation.elem);
 promoSlider.append(sliderCards.elem);
 newArrivals.append(newCollectionCards.elem);

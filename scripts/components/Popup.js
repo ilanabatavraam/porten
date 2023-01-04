@@ -8,16 +8,21 @@ export class Popup {
         document.body.append(template);
         const popup = document.querySelector('.popup');
         const title = popup.querySelector('.popup__title');
-        const container = popup.querySelector('.popup__container');
+        const container = popup.querySelector('.popup__inner');
         const popupBody = popup.querySelector('.popup__body');
-        
+        const form = `<form action="https://httpbin.org/post" class="popup__form" method="post" novalidate name="${data}">
+        <input type="email" placeholder="Enter email" required name="email" class="popup__input" autocomplete="off">
+        <input type="password" placeholder="Enter password" required name="password" class="popup__input"><button class="button" type="submit" disabled>Submit</button></form>`
+        container.innerHTML = form;
+
         if (data && data === 'singin') {
             title.textContent = 'Long time no see :)';
             popupBody.textContent = 'Enter you login and password';
         } else if (data && data === 'singup') {
             title.textContent = 'Welcome :)';
-            popupBody.textContent = 'Set you login and password';
+            popupBody.textContent = 'Set you login and password to save and check your orders';
         }
+
 
         return popup
     }
