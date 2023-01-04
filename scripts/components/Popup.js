@@ -1,7 +1,6 @@
 export class Popup {
     constructor(data) {
         this.elem = this.#render(data);
-        this.data = data;
     }
 
     #render(data) {
@@ -26,5 +25,26 @@ export class Popup {
     open() {
         this.elem.classList.add('popup_opened');
         document.body.classList.add('body_popup-opened');
+        document.addEventListener('keydown', this.keydownHandler);
+        this.elem.addEventListener('click', this.closePopup);
     }
+
+    close() {
+        this.elem.remove();
+        document.body.classList.remove('body_popup-opened');
+        document.removeEventListener('keydown', this.keydownHandler);
+        document.removeEventListener('click', this.closePopup);
+    }
+
+    keydownHandler = (event) => {
+        if (event.code === 'Escape') {
+          this.close();
+        }
+      }
+    
+      closePopup = (event) => {
+        if (event.target.closest('.popup__close') || event.target === event.currentTarget) {
+          this.close();
+        }
+      }
 }

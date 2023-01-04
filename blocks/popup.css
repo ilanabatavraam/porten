@@ -22,8 +22,33 @@
 .popup__container {
     transition: 3s;
     width: 100%;
-    max-width: 500px;
-    padding: 20px;
+    padding: 20px 35vw;
     box-sizing: border-box;
     background-color: #000000;
+    position: relative;
+}
+
+.popup__close {
+    display: block;
+    position: absolute;
+    bottom: 102%;
+    left: 70vw;
+    width: 30px;
+    height: 30px;
+    background-image: url('../images/close.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+    .popup__container {
+        padding: 10px;
+    }
+
+    .popup__close {
+        left: auto;
+        right: 20px;
+    }
 }
