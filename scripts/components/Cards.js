@@ -1,9 +1,9 @@
 export class Cards {
     constructor(arr) {
         this.arr = arr;
-        this.elem = this.render;
+        this.elem = this.#render();
     }
-    get render() {
+    #render() {
         this.elem = document.createElement('div');
         this.elem.classList.add('cards');
         

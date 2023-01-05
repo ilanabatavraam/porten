@@ -389,3 +389,27 @@ getShowMoreBnt(newArrivals.querySelector('.cards'), 8, '/#');
 
     openPopupButton.addEventListener('click', openPopup);
 })();
+
+// swipe cards
+document.addEventListener('pointerdown', function(event) {
+    if (event.target.closest('.card__img')) {
+        event.preventDefault();
+    }
+    if (event.target.closest('.promo-categoties__slider')) {
+        const onPointerMove = (event) => {
+            const cards = document.querySelector('.promo-categoties__slider .cards');
+            let xPointer = event.clientX - cards.getBoundingClientRect().left; 
+            console.log(xPointer)
+            cards.scroll({
+                top: 0,
+                left: xPointer,
+                behavior: 'smooth'
+              })
+        }
+        
+        document.addEventListener('pointerup', onPointerMove);
+    }
+    document.onpointerup = function(event) {
+        document.removeEventListener('pointerup', onPointerMove);
+    }
+});
