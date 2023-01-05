@@ -397,10 +397,9 @@ document.addEventListener('pointerdown', function(event) {
     }
     if (event.target.closest('.promo-categoties__slider')) {
         const onPointerMove = (event) => {
-            let xPointer = event.x; 
-            //window.scroll(x-coord, y-coord)
             const cards = document.querySelector('.promo-categoties__slider .cards');
-            console.log(xPointer, -xPointer)
+            let xPointer = event.clientX - cards.getBoundingClientRect().left; 
+            console.log(xPointer)
             cards.scroll({
                 top: 0,
                 left: xPointer,
@@ -408,8 +407,9 @@ document.addEventListener('pointerdown', function(event) {
               })
         }
         
-       
-
         document.addEventListener('pointerup', onPointerMove);
+    }
+    document.onpointerup = function(event) {
+        document.removeEventListener('pointerup', onPointerMove);
     }
 });
