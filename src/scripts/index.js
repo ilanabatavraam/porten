@@ -1,3 +1,5 @@
+import '../pages/index.css';
+
 const workSchedule = [
     {
         name: '+972(52)667-29-98',
@@ -215,31 +217,31 @@ const mailingForm = {
 
 
 
-// import Worktime from './components/Worktime.js';
-// import LoginLinks from './components/LoginLinks.js';
-// import Nav from './components/Nav.js';
-// import Cards from './components/Cards.js';
-// import Brands from './components/Brands.js';
-// import CategoriesList from './components/CategoriesList.js';
+import Worktime from './components/Worktime.js';
+import LoginLinks from './components/LoginLinks.js';
+import Nav from './components/Nav.js';
+import Cards from './components/Cards.js';
+import Brands from './components/Brands.js';
+import CategoriesList from './components/CategoriesList.js';
 
-// header top line
-// const headerTopline = document.querySelector('.header__work-info');
-// const headerNav = document.querySelector('.header__nav');
-// const promoSlider = document.querySelector('.promo-categoties__slider');
-// const newArrivals = document.querySelector('.cards-new-arr');
-// const brands = document.querySelector('.brands');
-// const smallCatsWrapper = document.querySelector('.info__body_type_categories');
-// const mailingWrapper = document.querySelector('.info__body_type_newsletter');
-// const footer = document.querySelector('.footer');
+//header top line
+const headerTopline = document.querySelector('.header__work-info');
+const headerNav = document.querySelector('.header__nav');
+const promoSlider = document.querySelector('.promo-categoties__slider');
+const newArrivals = document.querySelector('.cards-new-arr');
+const brands = document.querySelector('.brands');
+const smallCatsWrapper = document.querySelector('.info__body_type_categories');
+const mailingWrapper = document.querySelector('.info__body_type_newsletter');
+const footer = document.querySelector('.footer');
 
-// const workList = new Worktime(workSchedule);
-// const login = new LoginLinks(loginLinksData);
-// const loginFooter = new LoginLinks(loginLinksData);
-// const navigation = new Nav(navLinks);
-// const sliderCards = new Cards(mainSliderCards);
-// const newCollectionCards = new Cards(newArrivalsCards);
-// const footeBrandsList = new Brands(brandsList);
-// const smallCategoriesList = new CategoriesList(smallCategories);
+const workList = new Worktime(workSchedule);
+const login = new LoginLinks(loginLinksData);
+const loginFooter = new LoginLinks(loginLinksData);
+const navigation = new Nav(navLinks);
+const sliderCards = new Cards(mainSliderCards);
+const newCollectionCards = new Cards(newArrivalsCards);
+const footeBrandsList = new Brands(brandsList);
+const smallCategoriesList = new CategoriesList(smallCategories);
 
 headerTopline.append(workList.elem);
 headerTopline.append(login.elem);

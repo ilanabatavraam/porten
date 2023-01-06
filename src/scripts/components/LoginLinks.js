@@ -1,5 +1,5 @@
-import {Popup} from './Popup.js';
-export class LoginLinks {
+import Popup from './Popup.js';
+export default class LoginLinks {
     constructor(arr) {
         this.arr = arr;
         this.elem = this.#render();
