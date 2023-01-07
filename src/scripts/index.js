@@ -401,7 +401,6 @@ document.addEventListener('pointerdown', function(event) {
         const onPointerMove = (event) => {
             const cards = document.querySelector('.promo-categoties__slider .cards');
             let xPointer = event.clientX - cards.getBoundingClientRect().left; 
-            console.log(xPointer)
             cards.scroll({
                 top: 0,
                 left: xPointer,
@@ -410,8 +409,5 @@ document.addEventListener('pointerdown', function(event) {
         }
         
         document.addEventListener('pointerup', onPointerMove);
-    }
-    document.onpointerup = function(event) {
-        document.removeEventListener('pointerup', onPointerMove);
     }
 });
