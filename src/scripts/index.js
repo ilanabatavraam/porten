@@ -1,3 +1,5 @@
+import '../pages/index.css';
+
 const workSchedule = [
     {
         name: '+972(52)667-29-98',
@@ -215,14 +217,14 @@ const mailingForm = {
 
 
 
-import {Worktime} from './components/Worktime.js';
-import {LoginLinks} from './components/LoginLinks.js';
-import {Nav} from './components/Nav.js';
-import {Cards} from './components/Cards.js';
-import {Brands} from './components/Brands.js';
-import {CategoriesList} from './components/CategoriesList.js';
+import Worktime from './components/Worktime.js';
+import LoginLinks from './components/LoginLinks.js';
+import Nav from './components/Nav.js';
+import Cards from './components/Cards.js';
+import Brands from './components/Brands.js';
+import CategoriesList from './components/CategoriesList.js';
 
-// header top line
+//header top line
 const headerTopline = document.querySelector('.header__work-info');
 const headerNav = document.querySelector('.header__nav');
 const promoSlider = document.querySelector('.promo-categoties__slider');
@@ -399,7 +401,6 @@ document.addEventListener('pointerdown', function(event) {
         const onPointerMove = (event) => {
             const cards = document.querySelector('.promo-categoties__slider .cards');
             let xPointer = event.clientX - cards.getBoundingClientRect().left; 
-            console.log(xPointer)
             cards.scroll({
                 top: 0,
                 left: xPointer,
@@ -408,8 +409,5 @@ document.addEventListener('pointerdown', function(event) {
         }
         
         document.addEventListener('pointerup', onPointerMove);
-    }
-    document.onpointerup = function(event) {
-        document.removeEventListener('pointerup', onPointerMove);
     }
 });

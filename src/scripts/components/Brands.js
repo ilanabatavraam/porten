@@ -1,4 +1,4 @@
-export class Brands {
+export default class Brands {
     constructor(arr) {
         this.arr = arr;
         this.elem = this.render;

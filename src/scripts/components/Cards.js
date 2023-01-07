@@ -1,4 +1,4 @@
-export class Cards {
+export default class Cards {
     constructor(arr) {
         this.arr = arr;
         this.elem = this.#render();

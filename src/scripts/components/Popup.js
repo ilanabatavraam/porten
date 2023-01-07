@@ -1,4 +1,4 @@
-export class Popup {
+export default class Popup {
     constructor(data) {
         this.elem = this.#render(data);
     }
