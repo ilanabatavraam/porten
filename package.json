@@ -6,25 +6,25 @@
   "scripts": {
     "start": "set NODE_ENV=development&&webpack serve",
     "dev": "set NODE_ENV=development&&webpack",
-    "build": "set NODE_ENV=production&&webpack"
+    "build": "webpack --mode=development",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vitalii-kopiievskiy/webpack-template.git"
+    "url": "git+https://github.com/ilanabatavraam/porten.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/vitalii-kopiievskiy/webpack-template/issues"
-  },
-  "homepage": "https://github.com/vitalii-kopiievskiy/webpack-template#readme",
+  "homepage": "git+https://github.com/ilanabatavraam/porten.git",
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
     "autoprefixer": "^9.0.0",
     "babel-loader": "^8.2.2",
     "css-loader": "^6.4.0",
+    "gh-pages": "^4.0.0",
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.2",
     "mini-css-extract-plugin": "^2.4.2",
