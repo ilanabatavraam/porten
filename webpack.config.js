@@ -1,11 +1,11 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 let mode = 'development'
 if (process.env.NODE_ENV === 'production') {
     mode = 'production'
 }
-console.log(mode + ' mode')
 
 module.exports = {
     mode: mode,
@@ -14,7 +14,7 @@ module.exports = {
     },
     output: {
         filename: '[name].[contenthash].js',
-        assetModuleFilename: "assets/[hash][ext][query]",
+        assetModuleFilename: "images/[hash][ext][query]",
         clean: true,
     },
     devServer: {
@@ -36,9 +36,25 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             template: "./src/index.html"
-        })],
+        }),
+        new CopyPlugin({
+            patterns: [
+              { from: "src", to: "dist" }
+            ],
+        })
+    ],
     module: {
         rules: [
+            {
+                test: /\.m?js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    // options: {
+                    //     presets: ['@babel/preset-env']
+                    // }
+                }
+            },
             {
             test: /\.html$/i,
             loader: "html-loader",
@@ -72,16 +88,6 @@ module.exports = {
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 type: 'asset/resource',
-            },
-            {
-                test: /\.m?js$/,
-                exclude: /node_modules/,
-                use: {
-                    loader: 'babel-loader',
-                    // options: {
-                    //     presets: ['@babel/preset-env']
-                    // }
-                }
             }
         ]
     },
